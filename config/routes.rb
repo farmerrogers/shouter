@@ -1,12 +1,16 @@
 Shouter::Application.routes.draw do
 
 
+devise_for :users
+
+#match "users/" => "users#index"
+#get "users/index"
+
 resources :users
 resources :shouts
 
 
-
-  root :to => 'shouts#index'
+root :to => 'shouts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

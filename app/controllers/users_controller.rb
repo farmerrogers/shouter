@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
+
+before_filter :authenticate_user!
+
   def index
   	@users = User.order(:username).all
+  	
+  	if user_signed_in?
+  		@user = current_user
+  	end
   end
 
   def show
@@ -33,7 +40,11 @@ class UsersController < ApplicationController
   end
 
   def new
-  	@user = User.new  #this creates an instance for submitting to the database.
+  	if user_signed_in?
+  		redirect_to users_path
+  	else
+  		@user = User.new  #this creates an instance for submitting to the database.
+  	end
   end
 
   def destroy

@@ -1,53 +1,16 @@
 Shouter::Application.routes.draw do
-  get "shouts/index"
 
-  get "shouts/show"
 
-  get "shouts/edit"
+devise_for :users
 
-  get "shouts/update"
+#match "users/" => "users#index"
+#get "users/index"
 
-  get "shouts/new"
+resources :users do
+	resources :shouts
+end
 
-  get "shouts/destroy"
-
-  get "shouts/create"
-
-#  get "shout/index"
-#
-#  get "shout/show"
-#
-#  get "shout/edit"
-#
-#  get "shout/update"
-#
-#  get "shout/new"
-#
-#  get "shout/destroy"
-#
-#  get "shout/create"
-
-  #get "user/index"
-  #match "user/" => "user#index"
-#
-#  get "user/show"
-#
-#  get "user/edit"
-#
-#  get "user/update"
-#
-#  get "user/new"
-#
-#  get "user/destroy"
-#
-#  get "user/create"
-
-resources :user
-resources :shout
-
-get "shout/index"
-
-  root :to => 'shout#index'
+root :to => 'shouts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

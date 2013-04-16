@@ -1,3 +1,9 @@
+<% if @ user %> 
+	<h1>Hi <%= @user.email %></h1>
+<% else %>
+	<h1>You know you're cool if you're a shouter!</h1>
+<% end %>
+
 <h1>Shout about it!!</h1>
 
 <ul>
@@ -8,4 +14,4 @@
 <% end %>
 </ul>
 
-<%= render :partial => "marketing" %>
+<%= render "marketing" %>

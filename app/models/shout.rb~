@@ -5,6 +5,5 @@ class Shout < ActiveRecord::Base
   has_many :liking_users, :through => :likes, :source=>:user
 
   validates :message, :uniqueness => true
-  validates :message, :presence => true
-  
+
 end

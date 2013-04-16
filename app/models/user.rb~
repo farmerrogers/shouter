@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :shouts
   has_many :likes
   has_many :liked_shouts, :through => :likes, :source => :shout
- 
+bundle 
   #validates :username, :presence => true
   validates :username, :uniqueness => true
   #validates :username, :length => {:minimum=>2,:maximum=>10}
